@@ -171,7 +171,7 @@ label {
 @media (max-width: 800px) {
     .top-header {
         background-image: url("Images/banner.png");
-        background-size: 100% 40%;
+        background-size: 100% 50%;
         background-attachment: fixed;
         height: 200px;
         width: 100%;
