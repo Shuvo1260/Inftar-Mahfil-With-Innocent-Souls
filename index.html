@@ -19,6 +19,10 @@
     <!-- Linking the files -->
     <link rel="stylesheet" type="text/css" href="assets/style.css">
     <script type="module" src="assets/script.js"></script>
+
+    <!-- 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
 </head>
 
 <body>
@@ -47,20 +51,91 @@
                 </div>
                 <h5 class="text">Donated</h5>
             </div>
-            
+
             <div class="circle-card">
                 <div class="box">
-                  <div class="circle-box">
-                    <svg>
-                      <circle cx ="70" cy="70" r="70"></circle>
-                    </svg>
-                  </div>
-                  <h5 class="text" id="available">0</h5>
+                    <div class="circle-box">
+                        <svg>
+                            <circle cx="70" cy="70" r="70"></circle>
+                        </svg>
+                    </div>
+                    <h5 class="text" id="available">0</h5>
                 </div>
                 <h5 class="text">Available</h5>
-              </div>
+            </div>
         </div>
-
     </div>
 
+    </br>
+    </br>
+
+    <div class="button_container">
+        <div class="center_button">
+            <button id="clickForDonation" type="button" class="button"
+                style="justify-content: center; align-items: center; display: flex; position: relative; align-self: center;">Click
+                for Donation</button>
+        </div>
+        <form id="donationForm">
+            <fieldset>
+                <legend>Donation Form::</legend>
+                <label>Name</label></br>
+                <textarea name="name" class="input_box" placeholder="Name" required></textarea></br></br>
+
+                <label>Email</label></br>
+                <textarea name="email" type="email" class="input_box" placeholder="Email" inputmode="email"
+                    required></textarea></br></br>
+
+                <label>Batch</label></br>
+                <select name="batch" class="dropdown_box" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="4">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                </select></br></br>
+
+
+                <label>Money has been sent in</label></br>
+                <select name="account" class="dropdown_box" required>
+                    <option value="Shuvo">Md Hasibul Hasan Shuvo(18 batch): 01627415001 (Bkash)</option>
+                    <option value="Shabab">Ar Rafi Rahman Shabab(18 batch): 01536183599 (Bkash)</option>
+                    <option value="Rahat">Iftekhar Rahat(19 batch): 01956091147 (Bkash)</option>
+                    <option value="Monjur">Monjur Morshed(20 batch): 01521201750 (Bkash)</option>
+                    <option value="Shafin">Shariar Iman Shafin(21 batch): 01866899285 (Bkash)</option>
+                    <option value="Rafi">Fahim Rafi(22 batch): 01911400878 (Bkash)</option>
+                    <option value="Ovi">Al Amin Ov (18 batch)i: 019899670153 (Rocket)</option>
+                </select></br></br>
+
+                <label>Money amount</label></br>
+                <textarea name="amount" type="number" class="input_box" placeholder="Money amount" inputmode="numeric"
+                    required></textarea></br></br>
+
+
+                <label>Transaction ID</label></br>
+                <textarea name="transactionID" class="input_box" placeholder="Transaction ID"
+                    required></textarea></br></br>
+
+                <button type="submit" class="button" style="float: right">Donate</button>
+            </fieldset>
+        </form>
+        </br>
+        <br>
+    </div>
 </body>
