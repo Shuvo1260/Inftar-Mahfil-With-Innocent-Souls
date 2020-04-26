@@ -43,7 +43,7 @@ form.addEventListener('submit', (e) => {
     //confirmation message
     Swal.fire(
         'Donation Successful',
-        'Thanks for your donation!',
+        'Thanks for your donation! Your donation request is under the checking process. Ater checking process it will be added to the donation list.',
         'success'
     )
 
