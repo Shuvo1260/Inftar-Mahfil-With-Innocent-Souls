@@ -12,4 +12,25 @@ var firebaseConfig = {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+//   firebase.analytics();
+
+  console.log("Result");
+var db = firebase.firestore();
+
+db.collection('Result').onSnapshot(snapshot => {
+    console.log("Result");
+    let changes = snapshot.docChanges();
+    changes.forEach(change => {
+        console.log(change.doc.data());
+        if(change.type === 'added') {
+            document.getElementById("fund").innerHTML = change.doc.data().fund
+            document.getElementById("donated").innerHTML = change.doc.data().donated
+            document.getElementById("available").innerHTML = change.doc.data().available
+        } else if (change.type === "modified") {
+            console.log(change.doc.data());
+            document.getElementById("fund").innerHTML = change.doc.data().fund
+            document.getElementById("donated").innerHTML = change.doc.data().donated
+            document.getElementById("available").innerHTML = change.doc.data().available
+        }
+    });
+})
