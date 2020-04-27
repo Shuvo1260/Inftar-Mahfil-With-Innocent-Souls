@@ -39,7 +39,7 @@ db.collection('Result').onSnapshot(snapshot => {
 
 
 // Realtime data fetching
-db.collection('Donation List').onSnapshot(snapshot => {
+db.collection('Donation List').orderBy('name', 'asc').onSnapshot(snapshot => {
     let changes = snapshot.docChanges();
     changes.forEach(change => {
         console.log(change.doc.data());
