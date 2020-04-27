@@ -128,6 +128,7 @@ label {
     -webkit-border-radius: 50px;
     color: white;
     padding: 15px 32px;
+    cursor: pointer;
 }
 
 .input_box {
@@ -330,6 +331,7 @@ input {
         -webkit-border-radius: 50px;
         color: white;
         padding: 15px 32px;
+        cursor: pointer;
     }
     
     .input_box {
