@@ -38,77 +38,77 @@ db.collection('Result').onSnapshot(snapshot => {
 
 
 
-// Realtime data fetching
-db.collection('Donation List').orderBy('name', 'asc').onSnapshot(snapshot => {
-    let changes = snapshot.docChanges();
-    changes.forEach(change => {
-        console.log(change.doc.data());
-        if (change.type === 'added') { // If data is added
-            renderList(change.doc);
+// // Realtime data fetching
+// db.collection('Donation List').orderBy('name', 'asc').onSnapshot(snapshot => {
+//     let changes = snapshot.docChanges();
+//     changes.forEach(change => {
+//         console.log(change.doc.data());
+//         if (change.type === 'added') { // If data is added
+//             renderList(change.doc);
 
-        } else if (change.type === "removed") { // If data is removed
-            console.log("Id: " + change.doc.data().transactionID);
-            let index = 0;
-            for (let data of tableData) {
-                if (data.transactionID == change.doc.data().transactionID) {
-                    console.log("Removed ", index);
-                    tableData.splice(index, 1);
-                    break;
-                }
-                index++;
-            }
-        } else if (change.type === "modified") { // If data is modified
-            console.log(change.doc.data().transactionID);
-            let index = 0;
-            for (let data of tableData) {
-                if (data.transactionID == change.doc.data().transactionID) {
-                    console.log("Modified ", index);
-                    tableData[index] = change.doc.data();
-                    break;
-                }
-                index++;
-            }
-        }
-
-
-    });
-
-    loadTableData(tableData);
-});
+//         } else if (change.type === "removed") { // If data is removed
+//             console.log("Id: " + change.doc.data().transactionID);
+//             let index = 0;
+//             for (let data of tableData) {
+//                 if (data.transactionID == change.doc.data().transactionID) {
+//                     console.log("Removed ", index);
+//                     tableData.splice(index, 1);
+//                     break;
+//                 }
+//                 index++;
+//             }
+//         } else if (change.type === "modified") { // If data is modified
+//             console.log(change.doc.data().transactionID);
+//             let index = 0;
+//             for (let data of tableData) {
+//                 if (data.transactionID == change.doc.data().transactionID) {
+//                     console.log("Modified ", index);
+//                     tableData[index] = change.doc.data();
+//                     break;
+//                 }
+//                 index++;
+//             }
+//         }
 
 
+//     });
 
-//create element and render list
-function renderList(doc) {
+//     loadTableData(tableData);
+// });
 
-    var values = {
-        name: doc.data().name, email: doc.data().email, batch: doc.data().batch, account: doc.data().account,
-        amount: doc.data().amount, transactionID: doc.data().transactionID
-    };
 
-    tableData.push(values);
-    console.log(tableData);
-}
 
-var databasePath = 'Pending Donation'
+// //create element and render list
+// function renderList(doc) {
+
+//     var values = {
+//         name: doc.data().name, email: doc.data().email, batch: doc.data().batch, account: doc.data().account,
+//         amount: doc.data().amount, transactionID: doc.data().transactionID
+//     };
+
+//     tableData.push(values);
+//     console.log(tableData);
+// }
+
+// var databasePath = 'Pending Donation'
 
 
 
 
 // Adding data into table
-function loadTableData(tableData) {
-    const tableBody = document.getElementById('donorList');
-    let dataHtml = '';
-    let index = 0;
-    for (let data of tableData) {
-        dataHtml += '<tr><td><input class="list-value" value="' + data.name +
-            '"></td><td><input class="list-value" value="' + data.batch +
-            '"></center></td></tr>';
-        index++;
-    }
-    tableBody.innerHTML = dataHtml;
+// function loadTableData(tableData) {
+//     const tableBody = document.getElementById('donorList');
+//     let dataHtml = '';
+//     let index = 0;
+//     for (let data of tableData) {
+//         dataHtml += '<tr><td><input class="list-value" value="' + data.name +
+//             '"></td><td><input class="list-value" value="' + data.batch +
+//             '"></center></td></tr>';
+//         index++;
+//     }
+//     tableBody.innerHTML = dataHtml;
 
-}
+// }
 
 
 const form = document.querySelector('#donationForm');
