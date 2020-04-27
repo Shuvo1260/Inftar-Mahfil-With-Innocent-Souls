@@ -80,10 +80,11 @@
     <br><br>
 
     <div class="button_container">
-        <div class="center_button">
-            <button id="clickForDonation" type="button" class="button"
-                style="justify-content: center; align-items: center; display: flex; position: relative; align-self: center;">Click
-                for Donation</button>
+        <div>
+            
+        <div>
+            <center><input id="clickForDonation" type="button" value="Click for Donation" class="button"></center>
+        </div>
         </div>
         <form id="donationForm">
             <fieldset>
@@ -145,7 +146,24 @@
                 <button type="submit" class="button" style="float: right">Donate</button>
             </fieldset>
         </form>
-        </br>
         <br>
+        <br>
+        <div style="bottom: auto;">
+            <fieldset>
+                <legend>Donor List::</legend>
+                <center>
+                    <table id="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Batch no</th>
+                            </tr>
+                        </thead>
+                        <tbody id="donorList"></tbody>
+                    </table>
+                </center>
+            </fieldset>
+        </div>
+
     </div>
 </body>

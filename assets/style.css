@@ -154,7 +154,8 @@ label {
 
 .button_container {
     height: 100px;
-    position: relative;
+    width: 100%;
+    position: absolute;
 }
 
 .center_button {
@@ -165,7 +166,37 @@ label {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
 
+td, th {
+    border: 1px, solid #003E65;
+    padding: 8px;
+}
+
+th {
+    font-weight: bold;
+    /* border: solid #04bd7f9c; */
+    border-radius: 5px;
+    background-color: #003E65;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    width: max-content;
+}
+
+tr:hover {
+    background-color: rgb(208, 250, 255);
+}
+input {
+    border: 2.5px solid #003E65 !important;
+  }
+.list-value {
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+}
 
 
 @media (max-width: 800px) {
