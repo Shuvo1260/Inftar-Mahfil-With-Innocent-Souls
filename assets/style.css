@@ -203,7 +203,10 @@ footer{
     color: white;
     text-align: left;
     padding-left: 20px;
-    padding-bottom: 2px;
+    position: absolute;
+    width: inherit;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 .leftSide{
     float:left;
