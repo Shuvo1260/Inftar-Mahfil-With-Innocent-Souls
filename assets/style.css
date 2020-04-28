@@ -198,7 +198,33 @@ input {
     border-radius: 5px;
     width: 100%;
 }
-
+footer{
+    background: #003b5f;
+    color: white;
+    text-align: left;
+    padding-left: 20px;
+    padding-bottom: 2px;
+}
+.leftSide{
+    float:left;
+    padding-left: 38px;
+}
+.rightSide{
+    float:right;
+    padding-left: 77px;
+    padding-right: 75px;
+}
+.rocket{
+    text-align:center;
+}
+footer a{
+    text-decoration: none;
+    color: white
+}
+footer a:hover{
+  color:gold;
+  font-weight: bold;
+}
 
 @media (max-width: 800px) {
     .top-header {
@@ -213,12 +239,12 @@ input {
         align-items: center;
         display: flex;
     }
-    
+
     * {
         padding: 0;
         margin: 0;
     }
-    
+
     .circle-card-container {
         position: relative;
         display: flex;
@@ -229,7 +255,7 @@ input {
         color: #ffffff;
         margin-top: 25%;
     }
-    
+
     .circle-card-container .circle-card {
         position: relative;
         width: 150px;
@@ -245,7 +271,7 @@ input {
         font-size: 18px;
         /* padding: 20px; */
     }
-    
+
     .circle-box {
         position: relative;
         width: 65px;
@@ -258,7 +284,7 @@ input {
         align-content: center;
         text-align: center;
     }
-    
+
     .box {
         position: relative;
         justify-content: center;
@@ -266,7 +292,7 @@ input {
         align-content: center;
         font-size: 26px;
     }
-    
+
     svg {
         position: relative;
         width: 150px;
@@ -276,7 +302,7 @@ input {
         align-items: center;
         align-self: center;
     }
-    
+
     svg circle {
         width: 50px;
         height: 50px;
@@ -287,19 +313,19 @@ input {
         transform: translate(5px, 5px);
         padding: 5px;
     }
-    
+
     div.container {
         width: 100%;
         margin: 0 auto;
         position: center;
     }
-    
+
     legend {
         font-size: 30px;
         color: #003E65;
         border-color: #003E65;
     }
-    
+
     fieldset {
         border-color: #003E65;
         border-width: medium;
@@ -310,12 +336,12 @@ input {
         padding: 5%;
         transition: 0.5s;
     }
-    
+
     label {
         color: #003E65;
         font-size: 24px;
     }
-    
+
     .button {
         background: #003E65;
         border: 0px solid #003E65;
@@ -333,7 +359,7 @@ input {
         padding: 15px 32px;
         cursor: pointer;
     }
-    
+
     .input_box {
         width: 90%;
         font-size: 16px;
@@ -344,7 +370,7 @@ input {
         line-height: normal;
         overflow: hidden;
     }
-    
+
     .dropdown_box {
         width: 95%;
         font-size: 16px;
@@ -355,12 +381,12 @@ input {
         line-height: normal;
         overflow: hidden;
     }
-    
+
     .button_container {
         height: 100px;
         position: relative;
     }
-    
+
     .center_button {
         margin: 0;
         position: absolute;
@@ -368,5 +394,17 @@ input {
         left: 50%;
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
+    }
+    .leftSide{
+      float: none;
+      padding-left: 0px;
+    }
+    .rightSide{
+      float: none;
+      padding-right: 0px;
+      padding-left: 0px;
+    }
+    .rocket{
+      text-align:left;
     }
  }
