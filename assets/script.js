@@ -16,7 +16,7 @@ firebase.initializeApp(firebaseConfig);
 
 console.log("Result");
 var db = firebase.firestore();
-let tableData = [];
+var tableData = [];
 
 db.collection('Result').onSnapshot(snapshot => {
     console.log("Result");
