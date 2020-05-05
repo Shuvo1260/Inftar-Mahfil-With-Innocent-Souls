@@ -37,6 +37,67 @@ db.collection('Result').onSnapshot(snapshot => {
 })
 
 
+let distributedTableData = [];
+//create element and render list
+function renderDistributedList(doc) {
+
+    var values = {
+        name: doc.data().name, amount: doc.data().amount, charge: doc.data().charge,
+        total: doc.data().total, transactionID: doc.data().transactionID, proof: doc.data().proof
+    };
+    distributedTableData.push(values);
+}
+
+db.collection('Distributed').onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+    changes.forEach(change => {
+        if (change.type === 'added') { // If data is added
+            renderDistributedList(change.doc);
+        } else if (change.type === "removed") { // If data is removed
+            let index = 0;
+            for (let data of distributedTableData) {
+                if (data.transactionID == change.doc.data().transactionID) {
+                    console.log("Removed ", index);
+                    distributedTableData.splice(index, 1);
+                    break;
+                }
+                index++;
+            }
+        } else if (change.type === "modified") { // If data is modified
+            let index = 0;
+            for (let data of distributedTableData) {
+                if (data.transactionID == change.doc.data().transactionID) {
+                    distributedTableData[index] = change.doc.data();
+                    break;
+                }
+                index++;
+            }
+        }
+    });
+
+    loadDistributedTableData(distributedTableData);
+
+});
+
+
+// Adding data into table
+function loadDistributedTableData(distributedTableData) {
+    const tableBody = document.getElementById('distributedList');
+    let dataHtml = '';
+    if (distributedTableData != null) {
+        for (let data of distributedTableData) {
+            dataHtml += '<tr><td><input class="list-value" value="' + data.name +
+                '"></td><td><input class="list-value" value="' + data.amount +
+                '"></td><td><input class="list-value" value="' + data.charge +
+                '"></td><td><input class="list-value" value="' + data.total +
+                '"></td><td><input class="list-value" value="' + data.proof +
+                '"></center></td></tr>';
+            tableBody.innerHTML = dataHtml;
+        }
+
+    }
+}
+
 
 // // Realtime data fetching
 // db.collection('Donation List').orderBy('name', 'asc').onSnapshot(snapshot => {
