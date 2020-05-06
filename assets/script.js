@@ -18,24 +18,52 @@ console.log("Result");
 var db = firebase.firestore();
 var tableData = [];
 
+var fundAmount = {
+    fund: 0,
+    distributed: 0,
+    balance: 0
+}
+
 db.collection('Result').onSnapshot(snapshot => {
     console.log("Result");
     let changes = snapshot.docChanges();
     changes.forEach(change => {
         console.log(change.doc.data());
         if (change.type === 'added') {
-            document.getElementById("fund").innerHTML = change.doc.data().fund
-            document.getElementById("donated").innerHTML = change.doc.data().donated
-            document.getElementById("available").innerHTML = change.doc.data().available
+            document.getElementById("fund").innerHTML = change.doc.data().fund;
+            document.getElementById("donated").innerHTML = change.doc.data().donated;
+            document.getElementById("available").innerHTML = change.doc.data().available;
+            fundAmount['fund'] = change.doc.data().fund;
         } else if (change.type === "modified") {
             console.log(change.doc.data());
-            document.getElementById("fund").innerHTML = change.doc.data().fund
-            document.getElementById("donated").innerHTML = change.doc.data().donated
-            document.getElementById("available").innerHTML = change.doc.data().available
+            document.getElementById("fund").innerHTML = change.doc.data().fund;
+            document.getElementById("donated").innerHTML = change.doc.data().donated;
+            document.getElementById("available").innerHTML = change.doc.data().available;
         }
     });
 })
 
+function saveFundAmount(fundAmount) {
+
+    var donated;
+    db
+        .collection('Result')
+        .doc('Result')
+        .get()
+        .then(doc => {
+            if (doc.exists) {
+                //Inserted data of total funding
+                db.collection('Result').doc('Result').set({
+                    fund: fundAmount.fund,
+                    donated: fundAmount.distributed,
+                    available: fundAmount.balance,
+                });
+            }
+        })
+        .catch(error => {
+            console.log("Resutl error: ", error)
+        });
+}
 
 let distributedTableData = [];
 //create element and render list
@@ -53,6 +81,7 @@ db.collection('Distributed').onSnapshot(snapshot => {
     changes.forEach(change => {
         if (change.type === 'added') { // If data is added
             renderDistributedList(change.doc);
+            fundAmount['distributed'] += parseInt(change.doc.data().total);
         } else if (change.type === "removed") { // If data is removed
             let index = 0;
             for (let data of distributedTableData) {
@@ -75,6 +104,8 @@ db.collection('Distributed').onSnapshot(snapshot => {
         }
     });
 
+    fundAmount['balance'] = fundAmount['fund'] - fundAmount['distributed'];
+    saveFundAmount(fundAmount)
     loadDistributedTableData(distributedTableData);
 
 });
